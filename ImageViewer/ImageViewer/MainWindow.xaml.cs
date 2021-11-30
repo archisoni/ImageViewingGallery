@@ -142,24 +142,6 @@ namespace ImageViewer
         }
     }
 
-    public class MainWindowViewModel : INotifyPropertyChanged
-    {
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        void Raise(string PropertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
-        }
-
-        public MainWindowViewModel()
-        {
-            
-        }
-
-       
-    }
-
     public class TruncateConverter : IValueConverter
     {
         public object Convert(object value, Type targetType,
