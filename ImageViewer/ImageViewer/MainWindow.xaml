@@ -1,0 +1,57 @@
+﻿<Window
+        x:Class="ImageViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageViewer"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <local:TruncateConverter x:Key="TruncateConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Name="txtPath" IsReadOnly="True" Margin="5"/>
+            <Grid Grid.Column="1">
+                <TextBlock Text="Search" VerticalAlignment="Center" Margin="8" Visibility="{Binding ElementName=txtsearch, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <TextBox Name="txtsearch" KeyDown="txtsearch_KeyDown" Background="Transparent" Margin="5"/>
+            </Grid>
+        </Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="scrollViewer1" Grid.Row="1">
+            <ListBox BorderThickness="0" MouseDoubleClick="lstview_MouseDoubleClick" x:Name="lstview" PreviewMouseWheel="lstview_PreviewMouseWheel" ItemsSource="{Binding Path=MyImages}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="100" Width="100" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="1" Source="{Binding Path=Image}"/>
+                            <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="{Binding Path=Title, Converter={StaticResource TruncateConverter},ConverterParameter=30}" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </ScrollViewer>
+        <TextBlock Grid.Row="2" Margin="5" Name="txtsize" Width="150" HorizontalAlignment="Left"/>
+    </Grid>
+</Window>
