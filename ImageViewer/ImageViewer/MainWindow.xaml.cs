@@ -127,11 +127,6 @@ namespace ImageViewer
                 txtsize.Text = lstview.Items.Count.ToString() + " items";
             }
         }
-
-        private void btnclear_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 
     public class MyImageClass
