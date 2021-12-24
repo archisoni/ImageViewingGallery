@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using MahApps.Metro.Controls;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
