@@ -1,4 +1,7 @@
 # ImageViewingGallery
 This project is a Desktop Application which displays images of the selected folder with the name in your system. I had developed it using .Net Framework 4.7.2, Windows Presentation Foundation (WPF).
 
+You will get the output like this:
+![Screenshot (7)](https://user-images.githubusercontent.com/64640027/147381270-753f569a-8ebf-4410-ad26-a9448905b929.png)
+
 For more explanation about project, read my blog: https://imageviewinggallery.blogspot.com/
