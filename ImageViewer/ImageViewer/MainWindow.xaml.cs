@@ -60,7 +60,7 @@ namespace ImageViewer
             {
                 foreach (string file in Directory.GetFiles(fd.SelectedPath))
                 {
-                    if (file.EndsWith(".png") || file.EndsWith(".jpeg"))
+                    if (file.EndsWith(".png") || file.EndsWith(".jpg"))
                     {
                         _myImages.Add(new MyImageClass(System.IO.Path.GetFileNameWithoutExtension(file), GetImageFromResourceString(file)));
                     }
